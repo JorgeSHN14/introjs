@@ -45,8 +45,34 @@ let weatherData = {
     13.- Obtenga la referencia al cuarto elemento h6 del documento
     14.- Asigne el valor de (12) como texto del objeto en (13)
 */
-
+    const weatherToday = () => {
+        let name = weatherData["name"];
+        let date = weatherData["date"];
+        let nameDateStr = `${name} (${date})`;
+        let firstH2 = document.getElementsByTagName("h2")[0];
+        firstH2.innerText = nameDateStr;
+        let temperature = weatherData["conditions"]["temperature"];
+        let wind = weatherData["conditions"]["wind"];
+        let humidity = weatherData["conditions"]["humidity"];
+        let temperatureStr = `Temperature: ${temperature}`;
+        let windStr = `Wind: ${wind}`;
+        let humidityStr = `Humidity: ${humidity}`;
+        let elementsH6 = document.getElementsByTagName("h6");
+        let firstH6 = elementsH6[0];
+        let secondH6 = elementsH6[1];
+        let thirdH6 = elementsH6[2];
+        firstH6.innerText = temperatureStr;
+        secondH6.innerText = windStr;
+        thirdH6.innerText = humidityStr;
+        let icon = weatherData["icon"];
+        let iconDescription = document.getElementById("icon-description");
+        iconDescription.setAttribute("src",icon);
+        let description = weatherData["description"];
+        let fourthH6 = elementsH6[3];
+        fourthH6.innerText = description;
+    }
 
 /* 
     Llame a la función flecha weatherToday.
 */
+    weatherToday();
